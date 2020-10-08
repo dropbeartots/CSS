@@ -1,0 +1,48 @@
+Custom CSS for ticker
+
+/* TICKER 1 */
+/* OUTER CONTAINER */
+.tcontainer {
+  width: 100%;
+  overflow: hidden; /* Hide scroll bar */
+}
+ 
+/* MIDDLE CONTAINER */
+.ticker-wrap {
+  width: 100%;
+  background-color: transparent;
+}
+
+/* INNER CONTAINER */
+@keyframes ticker {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+.ticker-move {
+  /* Basically move items from right side of screen to left in infinite loop */
+  display: inline-block;
+  white-space: nowrap;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: ticker;
+  animation-duration: 25s;
+}
+.ticker-move:hover{
+  animation-play-state: paused; /* Pause scroll on mouse hover */
+}
+
+/* ITEMS */
+.ticker-item{
+  display: inline-block; /* Lay items in a horizontal line */
+  padding: 0 2rem;
+}
+
+And the HTML to add to the page you're using the ticker on...
+
+<div class="tcontainer"><div class="ticker-wrap"><div class="ticker-move">
+  <div class="ticker-item">Last night's *[[Body Lotto]]* <sup>TM</sup> count is *in*!</div>
+  <div class="ticker-item">The body count tallied was a record high for this time of year.</div>
+  <div class="ticker-item">The total number of dead tallied was at 525!</div>
+  <div class="ticker-item">The grand prize was set at *one million eurobucks*!</div>
+ <div class="ticker-item">Congratulations to Sebastian Bach for his winning entry!</div>
+</div></div></div>
